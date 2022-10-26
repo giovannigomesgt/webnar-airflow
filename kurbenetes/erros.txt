@@ -1,0 +1,7 @@
+Unable to connect to the server: net/http: TLS handshake timeout:
+unset http_proxy
+unset https_proxy
+
+helm install airflow apache-airflow/airflow --namespace airflow -f values.yaml --debug --timeout 10m0s
+helm upgrade --install airflow apache-airflow/airflow -n airflow -f values.yaml --debug --timeout 10m0s
+
