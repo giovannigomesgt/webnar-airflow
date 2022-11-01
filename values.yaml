@@ -46,7 +46,7 @@ securityContext: {}
 airflowHome: /opt/airflow
 
 # Default airflow repository -- overridden by all the specific images below
-defaultAirflowRepository: apache/airflow
+defaultAirflowRepository: airflow-custom
 
 # Default airflow tag to deploy
 defaultAirflowTag: "2.4.1"
