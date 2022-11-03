@@ -1,0 +1,16 @@
+dags:
+  gitSync:
+    enabled: true
+    repo: https://github.com/giovannigomesgt/trabalho-final.git
+    branch: main
+    rev: HEAD
+    depth: 1
+    maxFailures: 0
+    subPath: "dags"
+    wait: 60
+    containerName: git-sync
+    uid: 65533
+    securityContext: {}
+    extraVolumeMounts: []
+    env: []
+    resources: {}

@@ -2,29 +2,17 @@ Unable to connect to the server: net/http: TLS handshake timeout:
 unset http_proxy
 unset https_proxy
 
-helm install --force airflow apache-airflow/airflow --namespace airflow -f values.yaml --debug --timeout 10m0s
-helm upgrade --install airflow apache-airflow/airflow -n airflow -f values.yaml --debug --timeout 10m0s
-
-
- helm upgrade --install --force airflow apache-airflow/airflow --namespace airflow --create-namespace -f custom_values.yaml --debug
-
 
 
 
 helm install airflow apache-airflow/airflow \
 --set executor=KubernetesExecutor \
 
-#Especifique cada parâmetro usando o argumento para . Por exemplo,--set key=value[,key=value]helm install
 
 helm upgrade --install airflow apache-airflow/airflow \
---set dags.gitSync.enabled = true \
---set dags.gitSync.repo = https://github.com/giovannigomesgt/trabalho-final.git
-
---set dags.gitSync.enabled = true \
---set dags.gitSync.repo = https://github.com/giovannigomesgt/trabalho-final.git \
---set dags.gitSync.subPath = dags
-
-
+  --set dags.persistence.enabled=false \
+  --set dags.gitSync.enabled=true
+  --set dags.gitSync.repo = https://github.com/giovannigomesgt/trabalho-final.git
 
 
 --------------------
