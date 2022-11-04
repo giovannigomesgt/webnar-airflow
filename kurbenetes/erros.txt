@@ -3,16 +3,4 @@ unset http_proxy
 unset https_proxy
 
 
-
-
-helm install airflow apache-airflow/airflow \
---set executor=KubernetesExecutor \
-
-
-helm upgrade --install airflow apache-airflow/airflow \
-  --set dags.persistence.enabled=false \
-  --set dags.gitSync.enabled=true
-  --set dags.gitSync.repo = https://github.com/giovannigomesgt/trabalho-final.git
-
-
---------------------
+helm upgrade --install airflow apache-airflow/airflow --namespace airflow --create-namespace -f override-values.yaml --debug
