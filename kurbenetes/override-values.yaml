@@ -1,4 +1,10 @@
+
 executor: "KubernetesExecutor"
+
+defaultAirflowRepository: airflow-custom
+
+defaultAirflowTag: "1.0.0"
+
 dags:
   gitSync:
     enabled: true
@@ -16,14 +22,6 @@ dags:
     env: []
     resources: {}
 
-env:
-  - name: AIRFLOW__LOGGING__REMOTE_LOGGING
-    value: 'True'
-  - name: AIRFLOW__LOGGING__REMOTE_BASE_LOG_FOLDER
-    value: 's3://airflow-logs-539445819060/logs/'
-  - name: AIRFLOW__LOGGING__REMOTE_LOG_CONN_ID
-    value: 'my_aws'
-
 # Airflow webserver settings
 webserver:
   defaultUser:
@@ -34,3 +32,7 @@ webserver:
     firstName: Giovanni
     lastName: Leocadio
     password: admin
+
+extraEnvFrom: |
+  - configMapRef:
+      name: 'airflow-variables'

@@ -5,4 +5,3 @@ metadata:
   name: airflow-variables
 data:
   AIRFLOW_VAR_MY_S3_BUCKET: "my_s3_name"
-  
